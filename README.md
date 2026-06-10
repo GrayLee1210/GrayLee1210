@@ -178,10 +178,12 @@ mindmap
       双足人形 Humanoid
       腿足地形适应
     仿真平台 Simulators
-      Habitat
+      LIBERO
+      SimplerEnv
+      RoboCasa
+      ManiSkill (SAPIEN)
       Isaac Gym / Lab
-      MuJoCo
-      SAPIEN
+      MuJoCo / RLBench
 ```
 
 **代表算法 / 库**
@@ -194,8 +196,11 @@ mindmap
 | Diffusion Policy | 操作策略 | [real-stanford/diffusion_policy](https://github.com/real-stanford/diffusion_policy) | RSS 2023,扩散模型做视觉运动控制的奠基工作 |
 | ACT (ALOHA) | 操作策略 | [tonyzhaozh/aloha](https://github.com/tonyzhaozh/aloha) | 动作分块 + Transformer,低成本双臂遥操+模仿 |
 | 3D Diffuser Actor | 操作策略 | [nickgkan/3d_diffuser_actor](https://github.com/nickgkan/3d_diffuser_actor) | 把 Diffusion Policy 扩展到 3D 表征 |
-| Habitat-Sim | 仿真器 | [facebookresearch/habitat-sim](https://github.com/facebookresearch/habitat-sim) | 室内具身 AI 的主流仿真器 |
-| Habitat-Lab | 任务库 | [facebookresearch/habitat-lab](https://github.com/facebookresearch/habitat-lab) | 在 Habitat-Sim 上定义任务/训练智能体 |
+| LIBERO | 操作基准 | [Lifelong-Robot-Learning/LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO) | VLA / 终身学习操作基准,OpenVLA 等的标准评测 |
+| SimplerEnv | 操作评测 | [simpler-env/SimplerEnv](https://github.com/simpler-env/SimplerEnv) | 在仿真中评测真机 VLA 策略 (RT-1 / Octo / π0 等) |
+| RoboCasa | 仿真器 | [robocasa/robocasa](https://github.com/robocasa/robocasa) | 大规模家庭厨房操作仿真,生成式场景与任务 |
+| ManiSkill | 仿真器 | [haosulab/ManiSkill](https://github.com/haosulab/ManiSkill) | 基于 SAPIEN 的 GPU 并行操作仿真与基准 |
+| RLBench | 操作基准 | [stepjam/RLBench](https://github.com/stepjam/RLBench) | 100+ 操作任务基准,PerAct / 3D Diffuser Actor 的主战场 |
 | Isaac Lab | 仿真器 | [isaac-sim/IsaacLab](https://github.com/isaac-sim/IsaacLab) | NVIDIA 高保真机器人学习仿真平台 |
 
 ---
