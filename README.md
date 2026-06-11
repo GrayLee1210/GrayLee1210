@@ -6,7 +6,7 @@
 
 # 👋 Hi, I'm GrayLee1210
 
-> 🎓 MSc student in Computer Science | 🧭 **Image-Goal Navigation / End-to-End Robot Navigation / VLN / World Models**
+> 🎓 MSc student in Robotics Science and Engineering, Northeastern University (China) | 🧭 **Image-Goal Navigation / End-to-End Robot Navigation / VLN / World Models**
 > Submitted to RA-L. Currently working on Image-Goal Navigation; next interests: Vision-and-Language Navigation and world-model-based navigation.
 
 This repository is my personal knowledge map of **AI → Embodied AI → Robot Navigation**.

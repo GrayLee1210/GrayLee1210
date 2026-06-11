@@ -6,7 +6,7 @@
 
 # 👋 你好,我是 GrayLee1210
 
-> 🎓 计算机科学在读硕士(研一)| 🧭 **Image-Goal Navigation / 端到端机器人导航 / VLN / 世界模型**
+> 🎓 东北大学(中国)机器人科学与工程在读硕士(研一)| 🧭 **Image-Goal Navigation / 端到端机器人导航 / VLN / 世界模型**
 > 投递过 RA-L,主攻图像目标导航 (Image-Goal Navigation),
 > 后续兴趣方向:Vision-and-Language Navigation 与基于世界模型的导航。
 
