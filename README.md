@@ -6,8 +6,8 @@
 
 # 👋 Hi, I'm GrayLee1210
 
-> 🎓 MSc student in Robotics Science and Engineering, Northeastern University (China) | 🧭 **Image-Goal Navigation / End-to-End Robot Navigation / VLN / World Models**
-> Submitted to RA-L. Currently working on Image-Goal Navigation; next interests: Vision-and-Language Navigation and world-model-based navigation.
+> 🎓 MSc student in Robotics Science and Engineering, Northeastern University (China) | 🧭 **Image-Goal Navigation / End-to-End Robot Navigation**
+> Submitted to RA-L. Currently working on Image-Goal Navigation; next interests: Vision-and-Language Navigation (VLN), world-model-based navigation, and sim-to-real transfer for embodied navigation.
 
 This repository is my personal knowledge map of **AI → Embodied AI → Robot Navigation**.
 Mindmaps show the structure; tables list representative algorithms with official code. Continuously updated.
@@ -378,7 +378,7 @@ mindmap
 
 ## 📌 Roadmap
 
-- [ ] Paper-reading notes on Image-Goal Navigation (separate `/papers/imagenav` directory)
+- [x] Image-Goal Navigation paper list — see [papers/imagenav](papers/imagenav/) (deep-reading notes coming next)
 - [ ] Habitat environment setup pitfalls guide
 - [ ] VLN-CE baseline reproduction notes
 - [ ] Explore world models for navigation (starting point: NavMorph)
@@ -388,6 +388,6 @@ mindmap
 ## 📫 Contact
 
 - GitHub Issues are welcome for discussion
-- Email: `ljq1449390417@gmail.com`
+- Email: `18840596587@163.com`
 
 > This repository is continuously updated. If it helps you, a ⭐ Star is appreciated.

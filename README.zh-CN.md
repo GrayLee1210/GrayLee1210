@@ -6,9 +6,9 @@
 
 # 👋 你好,我是 GrayLee1210
 
-> 🎓 东北大学(中国)机器人科学与工程在读硕士(研一)| 🧭 **Image-Goal Navigation / 端到端机器人导航 / VLN / 世界模型**
+> 🎓 东北大学(中国)机器人科学与工程在读硕士(研一)| 🧭 **Image-Goal Navigation / 端到端机器人导航**
 > 投递过 RA-L,主攻图像目标导航 (Image-Goal Navigation),
-> 后续兴趣方向:Vision-and-Language Navigation 与基于世界模型的导航。
+> 后续兴趣方向:Vision-and-Language Navigation (VLN)、基于世界模型的导航、具身导航任务的 Sim-to-Real。
 
 本仓库是我个人对 **AI - 具身智能 - 机器人导航** 整体技术体系的梳理。
 图为知识结构,表为代表算法与官方代码仓库,持续更新中。
@@ -379,7 +379,7 @@ mindmap
 
 ## 📌 后续计划 (Roadmap)
 
-- [ ] 补充 Image-Goal Navigation 论文精读笔记 (单独 `/papers/imagenav` 目录)
+- [x] Image-Goal Navigation 论文清单 — 见 [papers/imagenav](papers/imagenav/)(精读笔记持续补充中)
 - [ ] 整理 Habitat 环境配置避坑指南
 - [ ] 添加 VLN-CE baseline 复现笔记
 - [ ] 探索 World Model 在导航中的应用 (起点:NavMorph)
@@ -389,6 +389,6 @@ mindmap
 ## 📫 联系我
 
 - GitHub Issue 欢迎讨论
-- 邮箱:`ljq1449390417@gmail.com`
+- 邮箱:`18840596587@163.com`
 
 > 本仓库持续更新中,如果对你有帮助欢迎 ⭐ Star。
