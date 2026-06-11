@@ -1,94 +1,107 @@
-# 🤖 我的 AI / 具身智能学习地图
+<div align="right">
 
-> 研究方向:**Image-Goal Navigation / 端到端机器人导航 / VLN / 世界模型**
-> 在读硕士研一,投递过 RAL,主攻图像目标导航 (Image-Goal Navigation),
-> 后续兴趣方向:Vision-and-Language Navigation 与基于世界模型的导航。
+**English** | [简体中文](README.zh-CN.md)
 
-本仓库是我个人对 **AI - 具身智能 - 机器人导航** 整体技术体系的梳理。
-图为知识结构,表为代表算法与官方代码仓库,持续更新中。
+</div>
+
+# 👋 Hi, I'm GrayLee1210
+
+> 🎓 MSc student in Computer Science | 🧭 **Image-Goal Navigation / End-to-End Robot Navigation / VLN / World Models**
+> Submitted to RA-L. Currently working on Image-Goal Navigation; next interests: Vision-and-Language Navigation and world-model-based navigation.
+
+This repository is my personal knowledge map of **AI → Embodied AI → Robot Navigation**.
+Mindmaps show the structure; tables list representative algorithms with official code. Continuously updated.
 
 ---
 
-## 🗺️ 总览 (Big Picture)
+## 🚁 Featured Project
+
+| Project | Description |
+|---|---|
+| [**UAV-Navigation-System**](https://github.com/GrayLee1210/UAV-Navigation-System) | A custom 250mm autonomous quadrotor: Livox Mid-360 + **FAST-LIO2 / DLIO** LiDAR-inertial localization + **EGO-Planner** waypoint navigation, verified on a real platform (Jetson Orin NX + PX4). Roadmap: autonomous exploration → DRL-based end-to-end navigation. |
+
+---
+
+## 🗺️ Big Picture
 
 ```mermaid
 mindmap
-  root((人工智能 AI))
-    机器学习与深度学习
-    强化学习 RL
-    大模型 Foundation Models
-    具身智能 Embodied AI
-      机器人操作 / 控制
-      机器人导航 ⭐
-      世界模型 / 3D 感知
+  root((Artificial Intelligence))
+    Machine Learning & Deep Learning
+    Reinforcement Learning
+    Foundation Models
+    Embodied AI
+      Robot Manipulation / Control
+      Robot Navigation ⭐
+      World Models / 3D Perception
 ```
 
-⭐ = 我目前的研究重点。
+⭐ = my current research focus.
 
 ---
 
-## 📊 一、机器学习与深度学习
+## 📊 1. Machine Learning & Deep Learning
 
 ```mermaid
 mindmap
-  root((机器学习与深度学习))
-    监督学习
-      分类
-      回归
-    无监督学习
-      聚类
-      降维
-    自监督学习 SSL
-      对比学习
+  root((ML & DL))
+    Supervised Learning
+      Classification
+      Regression
+    Unsupervised Learning
+      Clustering
+      Dimensionality Reduction
+    Self-Supervised Learning
+      Contrastive
         SimCLR
         MoCo
-      掩码重建
+      Masked Reconstruction
         MAE
-        BERT 式预训练
-    深度学习架构
-      卷积网络 CNN
+        BERT-style Pretraining
+    Architectures
+      CNN
         ResNet
         EfficientNet
-      循环网络 RNN
+      RNN
         LSTM
         GRU
       Transformer
         ViT
-        GPT 式解码器
-      图神经网络 GNN
+        GPT-style Decoder
+      GNN
         GCN
         GAT
         GraphSAGE
-        场景图理解
-      生成模型
+        Scene Graphs
+      Generative Models
         GAN
         VAE
-        扩散模型 Diffusion
-        归一化流 Flow
+        Diffusion
+        Normalizing Flows
 ```
 
-**代表算法 / 库**
+**Representative algorithms / libraries**
 
-| 名称 | 类别 | 代码 | 一句话说明 |
+| Name | Category | Code | One-liner |
 |---|---|---|---|
-| PyTorch | 框架 | [pytorch/pytorch](https://github.com/pytorch/pytorch) | 主流深度学习框架 |
-| timm | 视觉骨干 | [huggingface/pytorch-image-models](https://github.com/huggingface/pytorch-image-models) | 几乎所有视觉 backbone 的开源实现 |
-| MAE | 自监督 | [facebookresearch/mae](https://github.com/facebookresearch/mae) | 掩码自编码器,视觉自监督代表作 |
-| CLIP | 多模态 | [openai/CLIP](https://github.com/openai/CLIP) | 图像-文本对比学习,具身智能里几乎人手一个 |
-| DINOv2 | 自监督 | [facebookresearch/dinov2](https://github.com/facebookresearch/dinov2) | 强自监督视觉表征,被很多 VLA / 导航工作采用 |
+| PyTorch | Framework | [pytorch/pytorch](https://github.com/pytorch/pytorch) | The mainstream deep learning framework |
+| timm | Vision backbones | [huggingface/pytorch-image-models](https://github.com/huggingface/pytorch-image-models) | Open implementations of nearly every vision backbone |
+| MAE | Self-supervised | [facebookresearch/mae](https://github.com/facebookresearch/mae) | Masked autoencoder, landmark of visual SSL |
+| CLIP | Multimodal | [openai/CLIP](https://github.com/openai/CLIP) | Image-text contrastive learning, ubiquitous in Embodied AI |
+| DINOv2 | Self-supervised | [facebookresearch/dinov2](https://github.com/facebookresearch/dinov2) | Strong SSL visual representations, adopted by many VLA / navigation works |
 
 ---
 
-## 🎮 二、强化学习 (RL)
+## 🎮 2. Reinforcement Learning
 
 ```mermaid
 mindmap
-  root((强化学习 RL))
-    基于价值
+  root((Reinforcement Learning))
+    Value-Based
       DQN
       Double DQN
       Dueling DQN
-    基于策略
+    Policy-Based
       REINFORCE
       TRPO
       PPO
@@ -97,87 +110,87 @@ mindmap
       DDPG
       TD3
       SAC
-    基于模型 Model-based
-      Dreamer 系列
+    Model-Based
+      Dreamer Family
       MuZero
-      世界模型 World Model
-    离线强化学习 Offline RL
+      World Models
+    Offline RL
       CQL
       IQL
-    模仿学习 IL
-      行为克隆 BC
-      逆强化学习 IRL
+    Imitation Learning
+      Behavior Cloning
+      Inverse RL
       GAIL
-    分层强化学习 HRL
-    多智能体 MARL
+    Hierarchical RL
+    Multi-Agent RL
       MADDPG
       QMIX
 ```
 
-**代表算法 / 库**
+**Representative algorithms / libraries**
 
-| 名称 | 类别 | 代码 | 一句话说明 |
+| Name | Category | Code | One-liner |
 |---|---|---|---|
-| Stable-Baselines3 | RL 算法库 | [DLR-RM/stable-baselines3](https://github.com/DLR-RM/stable-baselines3) | PyTorch 实现的可靠 RL 算法集合 (PPO / SAC / DQN 等) |
-| RL Baselines3 Zoo | 训练脚本 | [DLR-RM/rl-baselines3-zoo](https://github.com/DLR-RM/rl-baselines3-zoo) | SB3 配套的训练 / 调参 / 评估框架 |
-| CleanRL | 单文件 RL | [vwxyzjn/cleanrl](https://github.com/vwxyzjn/cleanrl) | 每个算法一个文件,适合阅读和魔改 |
-| DreamerV3 | 世界模型 RL | [danijar/dreamerv3](https://github.com/danijar/dreamerv3) | Nature 2025,在 150+ 环境上用同一套超参达 SOTA |
-| DD-PPO | 分布式 PPO | 集成于 [habitat-lab](https://github.com/facebookresearch/habitat-lab) | 大规模分布式 PPO,几乎"解决"了 PointNav |
+| Stable-Baselines3 | RL library | [DLR-RM/stable-baselines3](https://github.com/DLR-RM/stable-baselines3) | Reliable PyTorch RL algorithms (PPO / SAC / DQN, ...) |
+| RL Baselines3 Zoo | Training scripts | [DLR-RM/rl-baselines3-zoo](https://github.com/DLR-RM/rl-baselines3-zoo) | Training / tuning / evaluation framework for SB3 |
+| CleanRL | Single-file RL | [vwxyzjn/cleanrl](https://github.com/vwxyzjn/cleanrl) | One file per algorithm, great for reading and hacking |
+| DreamerV3 | World-model RL | [danijar/dreamerv3](https://github.com/danijar/dreamerv3) | Nature 2025, SOTA across 150+ environments with one set of hyperparameters |
+| DD-PPO | Distributed PPO | in [habitat-lab](https://github.com/facebookresearch/habitat-lab) | Large-scale distributed PPO that nearly "solved" PointNav |
 
 ---
 
-## 🧠 三、大模型 (Foundation Models)
+## 🧠 3. Foundation Models
 
 ```mermaid
 mindmap
-  root((大模型 Foundation Models))
-    大语言模型 LLM
+  root((Foundation Models))
+    Large Language Models
       GPT / Claude / Qwen
-      指令微调 SFT
-      人类反馈 RLHF
-      检索增强 RAG
-    多模态大模型 VLM
+      Instruction Tuning SFT
+      RLHF
+      RAG
+    Vision-Language Models
       CLIP
       BLIP
       LLaVA
-    推理与智能体
-      思维链 CoT
-      工具调用 Tool Use
-      智能体 Agent
+    Reasoning & Agents
+      Chain-of-Thought
+      Tool Use
+      Agents
 ```
 
-**代表算法 / 库**
+**Representative algorithms / libraries**
 
-| 名称 | 类别 | 代码 | 一句话说明 |
+| Name | Category | Code | One-liner |
 |---|---|---|---|
-| CLIP | VLM | [openai/CLIP](https://github.com/openai/CLIP) | 图文对比学习,开启多模态预训练时代 |
-| LLaVA | 多模态 LLM | [haotian-liu/LLaVA](https://github.com/haotian-liu/LLaVA) | 视觉指令微调的代表作,开源 VLM 主流路线 |
-| BLIP-2 | 多模态 LLM | [salesforce/LAVIS](https://github.com/salesforce/LAVIS) | Q-Former 桥接视觉与语言 |
-| LLaMA-Factory | 微调框架 | [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) | 主流 LLM 一站式微调框架 |
+| CLIP | VLM | [openai/CLIP](https://github.com/openai/CLIP) | Image-text contrastive learning that started the multimodal pretraining era |
+| LLaVA | Multimodal LLM | [haotian-liu/LLaVA](https://github.com/haotian-liu/LLaVA) | Visual instruction tuning, the mainstream open-source VLM recipe |
+| BLIP-2 | Multimodal LLM | [salesforce/LAVIS](https://github.com/salesforce/LAVIS) | Q-Former bridging vision and language |
+| LLaMA-Factory | Fine-tuning | [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) | One-stop fine-tuning framework for mainstream LLMs |
 
 ---
 
-## 🦾 四、机器人操作与控制 (含 VLA)
+## 🦾 4. Robot Manipulation & Control (incl. VLA)
 
 ```mermaid
 mindmap
-  root((机器人操作 / 控制))
-    VLA 视觉-语言-动作
+  root((Manipulation / Control))
+    VLA Vision-Language-Action
       RT-1 / RT-2
       OpenVLA
       Octo
       π0 / π0-FAST
-    机器人操作 Manipulation
-      抓取 Grasping
-      灵巧操作 Dexterous
-      扩散策略 Diffusion Policy
-      动作分块 ACT
-      3D 操作 3D Diffuser Actor
-    运动控制 Locomotion
-      四足 Quadruped
-      双足人形 Humanoid
-      腿足地形适应
-    仿真平台 Simulators
+    Manipulation
+      Grasping
+      Dexterous
+      Diffusion Policy
+      Action Chunking ACT
+      3D Diffuser Actor
+    Locomotion
+      Quadruped
+      Humanoid
+      Terrain Adaptation
+    Simulators
       LIBERO
       SimplerEnv
       RoboCasa
@@ -186,195 +199,195 @@ mindmap
       MuJoCo / RLBench
 ```
 
-**代表算法 / 库**
+**Representative algorithms / libraries**
 
-| 名称 | 类别 | 代码 | 一句话说明 |
+| Name | Category | Code | One-liner |
 |---|---|---|---|
-| OpenVLA | VLA | [openvla/openvla](https://github.com/openvla/openvla) | 7B 开源 VLA,在 Open X-Embodiment 上预训练 |
-| openpi (π0) | VLA | [Physical-Intelligence/openpi](https://github.com/Physical-Intelligence/openpi) | Physical Intelligence 官方 π0 / π0-FAST / π0.5 |
-| open-pi-zero | VLA 复现 | [allenzren/open-pi-zero](https://github.com/allenzren/open-pi-zero) | π0 的社区复现,适合学习架构 |
-| Diffusion Policy | 操作策略 | [real-stanford/diffusion_policy](https://github.com/real-stanford/diffusion_policy) | RSS 2023,扩散模型做视觉运动控制的奠基工作 |
-| ACT (ALOHA) | 操作策略 | [tonyzhaozh/aloha](https://github.com/tonyzhaozh/aloha) | 动作分块 + Transformer,低成本双臂遥操+模仿 |
-| 3D Diffuser Actor | 操作策略 | [nickgkan/3d_diffuser_actor](https://github.com/nickgkan/3d_diffuser_actor) | 把 Diffusion Policy 扩展到 3D 表征 |
-| LIBERO | 操作基准 | [Lifelong-Robot-Learning/LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO) | VLA / 终身学习操作基准,OpenVLA 等的标准评测 |
-| SimplerEnv | 操作评测 | [simpler-env/SimplerEnv](https://github.com/simpler-env/SimplerEnv) | 在仿真中评测真机 VLA 策略 (RT-1 / Octo / π0 等) |
-| RoboCasa | 仿真器 | [robocasa/robocasa](https://github.com/robocasa/robocasa) | 大规模家庭厨房操作仿真,生成式场景与任务 |
-| ManiSkill | 仿真器 | [haosulab/ManiSkill](https://github.com/haosulab/ManiSkill) | 基于 SAPIEN 的 GPU 并行操作仿真与基准 |
-| RLBench | 操作基准 | [stepjam/RLBench](https://github.com/stepjam/RLBench) | 100+ 操作任务基准,PerAct / 3D Diffuser Actor 的主战场 |
-| Isaac Lab | 仿真器 | [isaac-sim/IsaacLab](https://github.com/isaac-sim/IsaacLab) | NVIDIA 高保真机器人学习仿真平台 |
+| OpenVLA | VLA | [openvla/openvla](https://github.com/openvla/openvla) | 7B open-source VLA pretrained on Open X-Embodiment |
+| openpi (π0) | VLA | [Physical-Intelligence/openpi](https://github.com/Physical-Intelligence/openpi) | Official π0 / π0-FAST / π0.5 from Physical Intelligence |
+| open-pi-zero | VLA reproduction | [allenzren/open-pi-zero](https://github.com/allenzren/open-pi-zero) | Community reproduction of π0, great for studying the architecture |
+| Diffusion Policy | Manipulation policy | [real-stanford/diffusion_policy](https://github.com/real-stanford/diffusion_policy) | RSS 2023, foundational work on diffusion for visuomotor control |
+| ACT (ALOHA) | Manipulation policy | [tonyzhaozh/aloha](https://github.com/tonyzhaozh/aloha) | Action chunking + Transformer, low-cost bimanual teleop + imitation |
+| 3D Diffuser Actor | Manipulation policy | [nickgkan/3d_diffuser_actor](https://github.com/nickgkan/3d_diffuser_actor) | Extends Diffusion Policy to 3D representations |
+| LIBERO | Benchmark | [Lifelong-Robot-Learning/LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO) | VLA / lifelong-learning manipulation benchmark (standard for OpenVLA etc.) |
+| SimplerEnv | Evaluation | [simpler-env/SimplerEnv](https://github.com/simpler-env/SimplerEnv) | Evaluating real-robot VLA policies in simulation (RT-1 / Octo / π0, ...) |
+| RoboCasa | Simulator | [robocasa/robocasa](https://github.com/robocasa/robocasa) | Large-scale household kitchen manipulation with generative scenes/tasks |
+| ManiSkill | Simulator | [haosulab/ManiSkill](https://github.com/haosulab/ManiSkill) | GPU-parallel manipulation simulation and benchmark on SAPIEN |
+| RLBench | Benchmark | [stepjam/RLBench](https://github.com/stepjam/RLBench) | 100+ manipulation tasks, home turf of PerAct / 3D Diffuser Actor |
+| Isaac Lab | Simulator | [isaac-sim/IsaacLab](https://github.com/isaac-sim/IsaacLab) | NVIDIA's high-fidelity robot learning platform |
 
 ---
 
-## 🧭 五、机器人导航 (Robot Navigation) ⭐
+## 🧭 5. Robot Navigation ⭐
 
-> 这一支是我目前的研究重点,展开最细。
-> 按"传统 / 端到端 / 模块化 / 语言驱动 / 基础模型"五条主线梳理。
+> My current research focus — expanded in the most detail,
+> organized along five threads: classical / end-to-end / modular / language-driven / foundation models.
 
 ```mermaid
 mindmap
-  root((机器人导航))
-    传统几何导航
-      定位与建图 SLAM
-        ORB-SLAM3 视觉
-        FAST-LIO2 激光
-        LIO-SAM 激光+IMU
+  root((Robot Navigation))
+    Classical Geometric
+      SLAM
+        ORB-SLAM3 Visual
+        FAST-LIO2 LiDAR
+        LIO-SAM LiDAR+IMU
         Cartographer 2D-3D
-      路径规划
+      Path Planning
         A*
         Dijkstra
         RRT / RRT*
         D* Lite
-      局部避障
+      Local Avoidance
         DWA
         TEB
-      占据栅格地图
-    目标驱动导航 Goal-Driven
-      点目标 PointNav
-        端到端 RL (DD-PPO)
-        辅助任务加速
-      物体目标 ObjectNav
-        端到端方法
-        模块化建图 (SemExp)
-        零样本 (ZSON / VLFM)
-      图像目标 ImageNav ⭐
-        端到端 RL
-        早/中期融合 (FGPrompt)
-        记忆增强 (Mem-Aug)
-        拓扑图 (TSGM / VGM)
-        预训练表征 (OVRL / OVRLv2)
-      实例图像目标 InstanceImageNav
-        探索-验证-利用
-        最后一英里导航
-      多物体导航 MultiON
-    语言驱动导航
-      VLN 视觉语言导航
-        R2R 房间到房间
-        RxR 多语言
-        REVERIE 远程定位
-        CVDN 对话式
+      Occupancy Grid Maps
+    Goal-Driven
+      PointNav
+        End-to-end RL (DD-PPO)
+        Auxiliary Tasks
+      ObjectNav
+        End-to-end
+        Modular Mapping (SemExp)
+        Zero-shot (ZSON / VLFM)
+      ImageNav ⭐
+        End-to-end RL
+        Early/Mid Fusion (FGPrompt)
+        Memory-Augmented
+        Topological (TSGM / VGM)
+        Pretrained Repr. (OVRL / OVRLv2)
+      InstanceImageNav
+        Explore-Verify-Exploit
+        Last-Mile Navigation
+      MultiON
+    Language-Driven
+      VLN
+        R2R Room-to-Room
+        RxR Multilingual
+        REVERIE Remote Grounding
+        CVDN Dialog
         R4R / R2R-Back
-      VLN-CE 连续环境
-        早期 CMA / Seq2Seq
-        Waypoint 预测
-        模块化拓扑 (ETPNav)
-        BEV 表征 (BEVBERT)
-      零样本 / LLM 驱动
+      VLN-CE Continuous
+        Early CMA / Seq2Seq
+        Waypoint Prediction
+        Modular Topological (ETPNav)
+        BEV Representation (BEVBERT)
+      Zero-shot / LLM-Driven
         LM-Nav
         NavGPT
-        Open-Nav (开源 LLM)
-      开放词汇导航
-        VLMaps 语言地图
-        VLFM 价值地图
-    导航基础模型 Foundation
-      GNM 通用导航策略
-      ViNT 视觉导航 Transformer
-      NoMaD 扩散策略导航
-      世界模型导航 (NavMorph)
-    其他模态导航
-      视听导航 AudioGoal
-      社交导航 Social Nav
-      室外/越野导航
+        Open-Nav (open LLMs)
+      Open-Vocabulary
+        VLMaps Language Maps
+        VLFM Value Maps
+    Navigation Foundation Models
+      GNM General Navigation
+      ViNT Navigation Transformer
+      NoMaD Diffusion Policy Nav
+      World-Model Nav (NavMorph)
+    Other Modalities
+      AudioGoal
+      Social Navigation
+      Outdoor / Off-road
 ```
 
-### 5.1 传统几何导航
+### 5.1 Classical Geometric Navigation
 
-| 名称 | 类型 | 代码 | 一句话说明 |
+| Name | Type | Code | One-liner |
 |---|---|---|---|
-| ORB-SLAM3 | 视觉 SLAM | [UZ-SLAMLab/ORB_SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3) | 单目/双目/RGB-D + IMU,视觉 SLAM 的事实标准 |
-| Cartographer | 2D/3D SLAM | [cartographer-project/cartographer](https://github.com/cartographer-project/cartographer) | Google 出品,激光 SLAM 经典 |
-| FAST-LIO2 | 激光 SLAM | [hku-mars/FAST_LIO](https://github.com/hku-mars/FAST_LIO) | 港大 MaRS 实验室,3D 激光惯性里程计 |
-| LIO-SAM | 激光 SLAM | [TixiaoShan/LIO-SAM](https://github.com/TixiaoShan/LIO-SAM) | MIT 出品,激光+IMU 紧耦合 |
+| ORB-SLAM3 | Visual SLAM | [UZ-SLAMLab/ORB_SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3) | Mono/stereo/RGB-D + IMU, the de-facto standard of visual SLAM |
+| Cartographer | 2D/3D SLAM | [cartographer-project/cartographer](https://github.com/cartographer-project/cartographer) | Google's classic LiDAR SLAM |
+| FAST-LIO2 | LiDAR SLAM | [hku-mars/FAST_LIO](https://github.com/hku-mars/FAST_LIO) | HKU MaRS Lab, 3D LiDAR-inertial odometry |
+| LIO-SAM | LiDAR SLAM | [TixiaoShan/LIO-SAM](https://github.com/TixiaoShan/LIO-SAM) | MIT, tightly-coupled LiDAR + IMU |
 
-### 5.2 目标驱动导航 (Habitat 任务体系)
+### 5.2 Goal-Driven Navigation (Habitat task family)
 
-| 名称 | 任务 | 代码 | 一句话说明 |
+| Name | Task | Code | One-liner |
 |---|---|---|---|
-| Habitat-Challenge | 基准 | [facebookresearch/habitat-challenge](https://github.com/facebookresearch/habitat-challenge) | ObjectNav / ImageNav 官方基准与 starter code |
-| DD-PPO | PointNav | [habitat-lab](https://github.com/facebookresearch/habitat-lab) | 25 亿帧训练,几乎"解决"PointNav |
-| SemExp | ObjectNav | [devendrachaplot/Object-Goal-Navigation](https://github.com/devendrachaplot/Object-Goal-Navigation) | 模块化语义建图 + 目标策略,CVPR 2020 Challenge 冠军 |
-| ZSON | 零样本 ObjectNav | [gunagg/zson](https://github.com/gunagg/zson) | 用 CLIP 做多模态目标嵌入,实现零样本 ObjectNav (NeurIPS 22) |
-| VLFM | 零样本 ObjectNav | [bdaiinstitute/vlfm](https://github.com/bdaiinstitute/vlfm) | 视觉-语言前沿地图,可在 Spot 真机部署 (ICRA 24) |
-| FGPrompt ⭐ | ImageNav | [XinyuSun/FGPrompt](https://github.com/XinyuSun/FGPrompt) | 细粒度目标提示 + 早/中期融合,NeurIPS 2023 SOTA |
+| Habitat-Challenge | Benchmark | [facebookresearch/habitat-challenge](https://github.com/facebookresearch/habitat-challenge) | Official ObjectNav / ImageNav benchmark and starter code |
+| DD-PPO | PointNav | [habitat-lab](https://github.com/facebookresearch/habitat-lab) | 2.5B frames of training, nearly "solved" PointNav |
+| SemExp | ObjectNav | [devendrachaplot/Object-Goal-Navigation](https://github.com/devendrachaplot/Object-Goal-Navigation) | Modular semantic mapping + goal policy, CVPR 2020 Challenge winner |
+| ZSON | Zero-shot ObjectNav | [gunagg/zson](https://github.com/gunagg/zson) | CLIP multimodal goal embeddings for zero-shot ObjectNav (NeurIPS 22) |
+| VLFM | Zero-shot ObjectNav | [bdaiinstitute/vlfm](https://github.com/bdaiinstitute/vlfm) | Vision-language frontier maps, deployable on Spot (ICRA 24) |
+| FGPrompt ⭐ | ImageNav | [XinyuSun/FGPrompt](https://github.com/XinyuSun/FGPrompt) | Fine-grained goal prompting + early/mid fusion, NeurIPS 2023 SOTA |
 
-> ⭐ FGPrompt 是我研究方向上的关键参考工作。
+> ⭐ FGPrompt is a key reference work in my research direction.
 
-### 5.3 视觉语言导航 (VLN)
+### 5.3 Vision-and-Language Navigation (VLN)
 
-| 名称 | 任务 | 代码 | 一句话说明 |
+| Name | Task | Code | One-liner |
 |---|---|---|---|
-| VLN-CE | 连续环境 VLN | [jacobkrantz/VLN-CE](https://github.com/jacobkrantz/VLN-CE) | 把 R2R 提升到连续动作空间,VLN-CE 的奠基工作 (ECCV 20) |
-| Recurrent VLN-BERT | R2R | [YicongHong/Recurrent-VLN-BERT](https://github.com/YicongHong/Recurrent-VLN-BERT) | 时间感知的循环 BERT,VLN 的强基线 |
-| VLN-HAMT | R2R / RxR / REVERIE | [cshizhe/VLN-HAMT](https://github.com/cshizhe/VLN-HAMT) | 历史感知多模态 Transformer (NeurIPS 21) |
-| Discrete-Continuous VLN | R2R-CE | [YicongHong/Discrete-Continuous-VLN](https://github.com/YicongHong/Discrete-Continuous-VLN) | 候选 Waypoint Predictor,弥合离散/连续 VLN 鸿沟 (CVPR 22) |
-| VLN-VER | VLN | [DefaultRui/VLN-VER](https://github.com/DefaultRui/VLN-VER) | 体素环境表示用于 VLN (CVPR 24) |
-| Open-Nav | 零样本 VLN-CE | [YanyuanQiao/Open-Nav](https://github.com/YanyuanQiao/Open-Nav) | 开源 LLM 在连续 VLN 上的零样本探索 (ICRA 25) |
+| VLN-CE | Continuous VLN | [jacobkrantz/VLN-CE](https://github.com/jacobkrantz/VLN-CE) | Lifts R2R to continuous action space, foundational for VLN-CE (ECCV 20) |
+| Recurrent VLN-BERT | R2R | [YicongHong/Recurrent-VLN-BERT](https://github.com/YicongHong/Recurrent-VLN-BERT) | Time-aware recurrent BERT, strong VLN baseline |
+| VLN-HAMT | R2R / RxR / REVERIE | [cshizhe/VLN-HAMT](https://github.com/cshizhe/VLN-HAMT) | History-aware multimodal Transformer (NeurIPS 21) |
+| Discrete-Continuous VLN | R2R-CE | [YicongHong/Discrete-Continuous-VLN](https://github.com/YicongHong/Discrete-Continuous-VLN) | Candidate waypoint predictor bridging discrete/continuous VLN (CVPR 22) |
+| VLN-VER | VLN | [DefaultRui/VLN-VER](https://github.com/DefaultRui/VLN-VER) | Volumetric environment representation for VLN (CVPR 24) |
+| Open-Nav | Zero-shot VLN-CE | [YanyuanQiao/Open-Nav](https://github.com/YanyuanQiao/Open-Nav) | Zero-shot continuous VLN with open-source LLMs (ICRA 25) |
 
-### 5.4 导航基础模型 (Foundation Models for Navigation)
+### 5.4 Navigation Foundation Models
 
-| 名称 | 类型 | 代码 | 一句话说明 |
+| Name | Type | Code | One-liner |
 |---|---|---|---|
-| GNM / ViNT / NoMaD | 视觉导航基础模型 | [robodhruv/visualnav-transformer](https://github.com/robodhruv/visualnav-transformer) | Berkeley 的通用导航模型家族,跨本体零样本部署 |
+| GNM / ViNT / NoMaD | Visual navigation foundation models | [robodhruv/visualnav-transformer](https://github.com/robodhruv/visualnav-transformer) | Berkeley's general navigation model family, zero-shot cross-embodiment |
 
-### 5.5 资源汇总 (Awesome Lists)
+### 5.5 Awesome Lists
 
-| 名称 | 内容 | 链接 |
+| Name | Content | Link |
 |---|---|---|
-| Awesome Embodied Navigation | 具身导航综述与论文清单 | [Franky-X/Awesome-Embodied-Navigation](https://github.com/Franky-X/Awesome-Embodied-Navigation) |
-| Awesome Embodied Vision | 具身视觉论文清单 | [ChanganVR/awesome-embodied-vision](https://github.com/ChanganVR/awesome-embodied-vision) |
-| Awesome ObjectNav | ObjectNav 专题清单 | [jws39/awesome-objectnav](https://github.com/jws39/awesome-objectnav) |
-| Awesome Target-Driven Nav | 目标驱动导航专题 | [Skylark0924/awesome-target-driven-navigation](https://github.com/Skylark0924/awesome-target-driven-navigation) |
-| Awesome VLA / VA / VLN | VLA + VLN 资源 | [jonyzhang2023/awesome-embodied-vla-va-vln](https://github.com/jonyzhang2023/awesome-embodied-vla-va-vln) |
+| Awesome Embodied Navigation | Surveys & papers on embodied navigation | [Franky-X/Awesome-Embodied-Navigation](https://github.com/Franky-X/Awesome-Embodied-Navigation) |
+| Awesome Embodied Vision | Embodied vision papers | [ChanganVR/awesome-embodied-vision](https://github.com/ChanganVR/awesome-embodied-vision) |
+| Awesome ObjectNav | ObjectNav-specific list | [jws39/awesome-objectnav](https://github.com/jws39/awesome-objectnav) |
+| Awesome Target-Driven Nav | Target-driven navigation | [Skylark0924/awesome-target-driven-navigation](https://github.com/Skylark0924/awesome-target-driven-navigation) |
+| Awesome VLA / VA / VLN | VLA + VLN resources | [jonyzhang2023/awesome-embodied-vla-va-vln](https://github.com/jonyzhang2023/awesome-embodied-vla-va-vln) |
 
 ---
 
-## 🌍 六、世界模型与 3D 感知
+## 🌍 6. World Models & 3D Perception
 
 ```mermaid
 mindmap
-  root((世界模型 / 3D 感知))
-    强化学习中的世界模型
+  root((World Models / 3D Perception))
+    World Models in RL
       PlaNet
       Dreamer V1 / V2 / V3
-      DayDreamer 真机
+      DayDreamer Real-robot
       MuZero
-    生成式世界模型
-      Genie 交互环境
-      Sora 视频世界模型
-      Cosmos 物理 AI
-    具身/导航世界模型
+    Generative World Models
+      Genie Interactive Envs
+      Sora Video World Model
+      Cosmos Physical AI
+    Embodied / Navigation WM
       NavMorph (VLN-CE)
-      自动驾驶世界模型
-      Sim2Real 迁移
-    3D 感知与表示
-      点云 Point Cloud
-      神经辐射场 NeRF
-      三维高斯 3DGS
-      占据网络 Occupancy
+      Driving World Models
+      Sim2Real Transfer
+    3D Perception & Representation
+      Point Clouds
+      NeRF
+      3D Gaussian Splatting
+      Occupancy Networks
 ```
 
-**代表算法 / 库**
+**Representative algorithms / libraries**
 
-| 名称 | 类别 | 代码 | 一句话说明 |
+| Name | Category | Code | One-liner |
 |---|---|---|---|
-| DreamerV3 | 通用世界模型 RL | [danijar/dreamerv3](https://github.com/danijar/dreamerv3) | 固定超参在 150+ 任务上 SOTA,Nature 2025 |
-| DayDreamer | 真机世界模型 | [danijar/daydreamer](https://github.com/danijar/daydreamer) | 不依赖仿真,直接在真实机器人上学世界模型 |
-| World-Model Survey | 综述 | [tsinghua-fib-lab/World-Model](https://github.com/tsinghua-fib-lab/World-Model) | ACM CSUR 2025 世界模型综述及论文清单 |
-| Awesome Physical AI | 综述 | [keon/awesome-physical-ai](https://github.com/keon/awesome-physical-ai) | VLA / 世界模型 / 具身基础模型清单 |
+| DreamerV3 | General world-model RL | [danijar/dreamerv3](https://github.com/danijar/dreamerv3) | SOTA on 150+ tasks with fixed hyperparameters, Nature 2025 |
+| DayDreamer | Real-robot world model | [danijar/daydreamer](https://github.com/danijar/daydreamer) | Learns world models directly on real robots, no simulator |
+| World-Model Survey | Survey | [tsinghua-fib-lab/World-Model](https://github.com/tsinghua-fib-lab/World-Model) | ACM CSUR 2025 world-model survey and paper list |
+| Awesome Physical AI | Survey | [keon/awesome-physical-ai](https://github.com/keon/awesome-physical-ai) | VLA / world models / embodied foundation model list |
 
 ---
 
-## 📌 后续计划 (Roadmap)
+## 📌 Roadmap
 
-- [ ] 补充 Image-Goal Navigation 论文精读笔记 (单独 `/papers/imagenav` 目录)
-- [ ] 整理 Habitat 环境配置避坑指南
-- [ ] 添加 VLN-CE baseline 复现笔记
-- [ ] 探索 World Model 在导航中的应用 (起点:NavMorph)
+- [ ] Paper-reading notes on Image-Goal Navigation (separate `/papers/imagenav` directory)
+- [ ] Habitat environment setup pitfalls guide
+- [ ] VLN-CE baseline reproduction notes
+- [ ] Explore world models for navigation (starting point: NavMorph)
 
 ---
 
-## 📫 联系我
+## 📫 Contact
 
-- GitHub Issue 欢迎讨论
-- 邮箱:`<你的邮箱>`
+- GitHub Issues are welcome for discussion
+- Email: `ljq1449390417@gmail.com`
 
-> 本仓库持续更新中,如果对你有帮助欢迎 ⭐ Star。
+> This repository is continuously updated. If it helps you, a ⭐ Star is appreciated.
