@@ -4,7 +4,7 @@
 
 </div>
 
-# 👋 你好,我是 GrayLee1210
+# 👋 你好,我是 GaryLee1210
 
 > 🎓 东北大学(中国)机器人科学与工程在读硕士(研一)| 🧭 **Image-Goal Navigation / 端到端机器人导航**
 > 投递过 RA-L,主攻图像目标导航 (Image-Goal Navigation),
@@ -19,7 +19,7 @@
 
 | 项目 | 简介 |
 |---|---|
-| [**UAV-Navigation-System**](https://github.com/GrayLee1210/UAV-Navigation-System) | 自研 250mm 自主导航四旋翼:Livox Mid-360 + **FAST-LIO2 / DLIO** 激光-惯性定位 + **EGO-Planner** 航点导航,已实机验证(Jetson Orin NX + PX4)。路线图:自主探索 → 基于 DRL 的端到端导航。 |
+| [**UAV-Navigation-System**](https://github.com/GaryLee1210/UAV-Navigation-System) | 自研 250mm 自主导航四旋翼:Livox Mid-360 + **FAST-LIO2 / DLIO** 激光-惯性定位 + **EGO-Planner** 航点导航,已实机验证(Jetson Orin NX + PX4)。路线图:自主探索 → 基于 DRL 的端到端导航。 |
 
 ---
 

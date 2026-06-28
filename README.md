@@ -4,7 +4,7 @@
 
 </div>
 
-# 👋 Hi, I'm GrayLee1210
+# 👋 Hi, I'm GaryLee1210
 
 > 🎓 MSc student in Robotics Science and Engineering, Northeastern University (China) | 🧭 **Image-Goal Navigation / End-to-End Robot Navigation**
 > Submitted to RA-L. Currently working on Image-Goal Navigation; next interests: Vision-and-Language Navigation (VLN), world-model-based navigation, and sim-to-real transfer for embodied navigation.
@@ -18,7 +18,7 @@ Mindmaps show the structure; tables list representative algorithms with official
 
 | Project | Description |
 |---|---|
-| [**UAV-Navigation-System**](https://github.com/GrayLee1210/UAV-Navigation-System) | A custom 250mm autonomous quadrotor: Livox Mid-360 + **FAST-LIO2 / DLIO** LiDAR-inertial localization + **EGO-Planner** waypoint navigation, verified on a real platform (Jetson Orin NX + PX4). Roadmap: autonomous exploration → DRL-based end-to-end navigation. |
+| [**UAV-Navigation-System**](https://github.com/GaryLee1210/UAV-Navigation-System) | A custom 250mm autonomous quadrotor: Livox Mid-360 + **FAST-LIO2 / DLIO** LiDAR-inertial localization + **EGO-Planner** waypoint navigation, verified on a real platform (Jetson Orin NX + PX4). Roadmap: autonomous exploration → DRL-based end-to-end navigation. |
 
 ---
 
