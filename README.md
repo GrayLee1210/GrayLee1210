@@ -6,7 +6,7 @@
 
 # 👋 Hi, I'm GaryLee1210
 
-> 🎓 MSc student in Robotics Science and Engineering, Northeastern University (China) | 🧭 **Image-Goal Navigation / End-to-End Robot Navigation**
+> 🎓 MSc student in Robotics Science and Engineering, Northeastern University (China) | 💼 Intern at **Beta Infinite** | 🧭 **Image-Goal Navigation / End-to-End Robot Navigation**
 > Submitted to RA-L. Currently working on Image-Goal Navigation; next interests: Vision-and-Language Navigation (VLN), world-model-based navigation, and sim-to-real transfer for embodied navigation.
 
 This repository is my personal knowledge map of **AI → Embodied AI → Robot Navigation**.
